@@ -2,6 +2,11 @@
 
 Este es un sistema de gestión médica empaquetado en Docker, desarrollado como parte del trabajo académico. Está diseñado para ejecutarse fácilmente en cualquier máquina con Docker instalado.
 
+# Presentado por:
+1. Sebastian Alberto Tapia Tito
+2. Clever Ronny Quenta Chura
+3. Cruz paredes Soledad Epifanía
+
 ---
 
 ## 📁 ¿Cómo ejecutar este proyecto?
@@ -17,3 +22,7 @@ Abre una terminal en la carpeta donde descomprimiste el proyecto y ejecuta el si
 
 ```bash
 docker compose up --build
+```
+### 👉 Paso 3: Entra a:
+```
+http://127.0.0.1:8000/
