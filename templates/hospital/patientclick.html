@@ -1,0 +1,144 @@
+{% extends 'hospital/homebase.html' %}
+
+{% block content %}
+
+<style>
+  :root {
+    --bg-dark: #121212;
+    --bg-darker: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --accent-color: #03DAC6;
+    --border-color: #333;
+  }
+
+  .jumbotron {
+    background-color: var(--bg-darker);
+    color: var(--text-primary);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .jumbotron::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(3, 218, 198, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+
+  .display-4 {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lead {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  hr.my-4 {
+    border-color: var(--border-color);
+    margin: 2rem auto;
+    width: 50%;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000000;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    margin: 0 1rem;
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    min-width: 220px;
+    position: relative;
+    z-index: 1;
+    border: none;
+    box-shadow: 0 4px 8px rgba(3, 218, 198, 0.2);
+  }
+
+  .btn-primary:hover {
+    background-color: #00BFA5;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(3, 218, 198, 0.3);
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .info-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .jumbotron {
+      padding: 2rem 1.5rem;
+      margin: 1.5rem;
+    }
+    
+    .display-4 {
+      font-size: 2rem;
+    }
+    
+    .btn-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .btn-primary {
+      width: 100%;
+      margin: 0.5rem 0;
+      min-width: auto;
+    }
+  }
+</style>
+
+<br>
+<br>
+
+<div class="jumbotron">
+  <h1 class="display-4">Hola, Paciente</h1>
+  <p class="lead">Bienvenido al Sistema de Gestión Hospitalaria</p>
+  <hr class="my-4">
+  <p class="info-text">Podrás acceder a varias funciones después de iniciar sesión o registrarte</p>
+  <div class="btn-container">
+    <a class="btn btn-primary btn-lg" href="/patientsignup" role="button">Registrar tu cuenta</a>
+    <a class="btn btn-primary btn-lg" href="/patientlogin" role="button">Iniciar Sesión</a>
+  </div>
+</div>
+
+{% endblock content %}

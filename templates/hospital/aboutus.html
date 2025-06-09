@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Sobre Nosotros | Sistema Hospitalario</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <style>
+    /* Reset completo para fondo oscuro */
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+      background-color: transparent;
+    }
+    
+    /* Establecer fondo oscuro global */
+    :root {
+      --bg-dark: #121212;
+      --bg-darker: #1e1e1e;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --accent-color: #03DAC6;
+      --border-color: #333;
+    }
+
+    html {
+      background-color: var(--bg-dark) !important;
+    }
+    
+    body {
+      background-color: var(--bg-dark) !important;
+      color: var(--text-primary);
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Reset específico para Bootstrap */
+    .container, .container-fluid, .jumbotron, .alert {
+      background-color: transparent !important;
+    }
+
+    /* Estilos para la barra de navegación */
+    .navbar {
+      background-color: var(--bg-darker) !important;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Estilos para el contenido principal */
+    .alert-success {
+      background-color: rgba(3, 218, 198, 0.1) !important;
+      color: var(--accent-color) !important;
+      border: 1px solid var(--accent-color) !important;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      box-shadow: 0 4px 16px rgba(3, 218, 198, 0.2);
+    }
+
+    .jumbotron {
+      background-color: var(--bg-darker) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+    .display-4 {
+      color: var(--accent-color) !important;
+    }
+
+    /* Estilos para el pie de página */
+    footer {
+      background-color: var(--bg-darker) !important;
+      color: var(--text-primary) !important;
+      padding: 20px 0;
+      margin-top: auto;
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      .jumbotron {
+        padding: 2rem 1rem;
+        margin: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  {% include "hospital/navbar.html" %}
+  
+  <br><br>
+  
+  <div class='alert alert-success'>
+    <h3>¡Sobre Nosotros!</h3>
+  </div>
+
+  <div class="jumbotron">
+  <h1 class="display-4" style="text-align:center;">Hola</h1>
+  <p class="lead">Un servicio dedicado al Administrador del Hospital, Doctores y Pacientes.</p>
+  <hr class="my-4">
+  <p class="info-text">Explora nuestra Website.</p>
+  <div class="btn-container" style="display: flex; justify-content: center;">
+    <a class="btn btn-primary btn-lg" href="/" role="button">Página Principal</a>
+  </div>
+</div>
+  
+  {% include "hospital/footer.html" %}
+  
+  <!-- Scripts al final del body -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

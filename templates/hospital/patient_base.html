@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style media="screen">
+    :root {
+      --bg-dark: #121212;
+      --bg-darker: #1a1a1a;
+      --bg-menu: #1e1e1e;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --accent-color: #bb86fc;
+      --border-color: #333;
+    }
+    
+    body {
+      padding-left: 240px;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a {
+      color: var(--text-primary);
+    }
+
+    a:hover {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    main {
+      position: relative;
+      height: 100vh;
+      background-color: var(--bg-dark);
+    }
+
+    /*---------------------------------------
+       Menu styles
+    -----------------------------------------*/
+    .menu {
+      background: var(--bg-menu);
+      height: 100vh;
+      width: 240px;
+      position: fixed;
+      top: 0px;
+      left: 0;
+      z-index: 5;
+      outline: none;
+      border-right: 1px solid var(--border-color);
+    }
+
+    .menu .avatar {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2em 0.5em;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .menu .avatar img {
+      width: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--accent-color);
+      box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.1);
+    }
+
+    .menu .avatar h2 {
+      font-weight: normal;
+      margin-bottom: 0;
+      color: var(--text-primary);
+    }
+
+    .menu .avatar h6 {
+      color: var(--text-secondary);
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0.5em 0;
+      margin: 0;
+    }
+
+    .menu ul li {
+      padding: 0.8em 1em 0.8em 3em;
+      font-size: 0.95em;
+      font-weight: regular;
+      background-repeat: no-repeat;
+      background-position: left 15px center;
+      background-size: auto 20px;
+      transition: all 0.15s linear;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+
+    /* Icon styles with filter for dark mode */
+    .menu ul li.icon-dashboard {
+      background-image: url("http://www.entypo.com/images//gauge.svg");
+      filter: invert(90%) brightness(0.8);
+    }
+
+    .menu ul li.icon-customers {
+      background-image: url("http://www.entypo.com/images//briefcase.svg");
+      filter: invert(90%) brightness(0.8);
+    }
+
+    .menu ul li.icon-users {
+      background-image: url("http://www.entypo.com/images//users.svg");
+      filter: invert(90%) brightness(0.8);
+    }
+
+    .menu ul li.icon-calendar {
+      background-image: url("http://www.entypo.com/images//calendar.svg");
+      filter: invert(90%) brightness(0.8);
+    }
+
+    .menu ul li:hover {
+      background-color: rgba(187, 134, 252, 0.1);
+      color: var(--text-primary);
+    }
+
+    .menu ul li:focus {
+      outline: none;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      background-color: var(--bg-menu) !important;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .navbar-brand {
+      color: var(--text-primary) !important;
+    }
+
+    .navbar-dark .navbar-toggler {
+      border-color: var(--border-color);
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: var(--text-primary);
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: var(--accent-color);
+    }
+
+    /*---------------------------------------
+       Social section
+    -----------------------------------------*/
+    footer {
+      padding: 0px 0px 0px 0px;
+      background-color: var(--bg-menu);
+      margin: 0px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    #ftr {
+      padding: 20px;
+    }
+
+    .fa {
+      font-size: 23px;
+      width: 60px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .fa:hover {
+      opacity: 0.8;
+      transform: translateY(-3px);
+    }
+
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+      margin-top: 30px;
+    }
+
+    .fa-whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
+
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 900px) and (min-width: 400px) {
+      body {
+        padding-left: 90px;
+      }
+      
+      .menu {
+        width: 90px;
+      }
+      
+      .menu .avatar {
+        padding: 0.5em;
+        position: relative;
+      }
+      
+      .menu .avatar img {
+        width: 60px;
+      }
+      
+      .menu .avatar h2 {
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 100px;
+        margin: 0;
+        min-width: 200px;
+        border-radius: 4px;
+        background: rgba(30, 30, 30, 0.9);
+        color: var(--text-primary);
+        transform: translate3d(-20px, -50%, 0);
+        transition: all 0.15s ease-in-out;
+      }
+      
+      .menu .avatar:hover h2 {
+        opacity: 1;
+        transform: translate3d(0px, -50%, 0);
+      }
+      
+      .menu ul li {
+        height: 60px;
+        background-position: center center;
+        background-size: 30px auto;
+        position: relative;
+      }
+      
+      .menu ul li span {
+        opacity: 0;
+        position: absolute;
+        background: rgba(30, 30, 30, 0.9);
+        color: var(--text-primary);
+        padding: 0.4em 0.8em;
+        border-radius: 4px;
+        top: 50%;
+        left: 80px;
+        transform: translate3d(-15px, -50%, 0);
+        transition: all 0.15s ease-in-out;
+        font-size: 0.9em;
+      }
+      
+      .menu ul li span:before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 50%;
+        left: -5px;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 5px solid rgba(30, 30, 30, 0.9);
+        transform: translateY(-50%);
+      }
+      
+      .menu ul li:hover span {
+        opacity: 1;
+        transform: translate3d(0px, -50%, 0);
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      body {
+        padding-left: 0;
+      }
+      
+      .menu {
+        width: 230px;
+        box-shadow: 0 0 0 100em rgba(0, 0, 0, 0);
+        transform: translate3d(-230px, 0, 0);
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .menu .smartphone-menu-trigger {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 100%;
+        background: var(--bg-menu);
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border: 1px solid var(--border-color);
+        border-left: none;
+      }
+      
+      .menu .smartphone-menu-trigger:before,
+      .menu .smartphone-menu-trigger:after {
+        content: '';
+        width: 50%;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 10px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+      
+      .menu .smartphone-menu-trigger:after {
+        top: 55%;
+        transform: translate3d(-50%, -50%, 0);
+      }
+      
+      .menu ul li {
+        padding: 1em 1em 1em 3em;
+        font-size: 1.1em;
+      }
+      
+      .menu:focus {
+        transform: translate3d(0, 0, 0);
+        box-shadow: 0 0 0 100em rgba(0, 0, 0, 0.8);
+      }
+      
+      .menu:focus .smartphone-menu-trigger {
+        pointer-events: none;
+      }
+    }
+
+    /* Bootstrap overrides for dark theme */
+    .container {
+      background-color: transparent;
+    }
+
+    .footer-copyright {
+      color: var(--text-secondary) !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="{% static patient.profile_pic.url %}" alt="Profile Pic" />
+      <br><br>
+      <h6>Paciente</h6>
+      <h2>{{request.user.first_name}}</h2>
+    </header>
+    <ul>
+      <li tabindex="0" class="icon-dashboard"><a href="/patient-dashboard"><span>Panel</span></a></li>
+      <li tabindex="0" class="icon-calendar"><a href="/patient-appointment"><span>Citas</span></a></li>
+      <li tabindex="0" class="icon-users"><a href="/patient-view-doctor"><span>Doctores</span></a></li>
+      <li tabindex="0" class="icon-users"><a href="/patient-discharge"><span>Alta Medica</span></a></li>
+    </ul>
+  </nav>
+  <main>
+    <!-- nav start -->
+    <div class="bs-example">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a href="/patient-dashboard" class="navbar-brand">Gestion Hospitalaria</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+          <div class="navbar-nav" style="margin-left: 90%;">
+            <a href="/logout" class="nav-item nav-link">Cerrar Sesion</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- nav end -->
+    <br><br>
+    <!-- content start-->
+    {% block content %}
+    {% endblock content %}
+    <!-- content end-->
+    <br><br><br><br><br><br><br>
+    <footer>
+      <p>
+        <a id="ftr" href="" class="fa fa-facebook"></a>
+        <a id="ftr" href="" class="fa fa-whatsapp"></a>
+        <a id="ftr" href="" class="fa fa-instagram"></a>
+        <a id="ftr" href="" class="fa fa-twitter"></a>
+      </p>
+      <br>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="wow fadeInUp footer-copyright">
+              <p>Hecho en Peru - Puno <br>
+                Copyright &copy; 2020 LazyCoder </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

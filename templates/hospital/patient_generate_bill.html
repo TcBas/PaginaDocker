@@ -1,0 +1,229 @@
+{% extends 'hospital/admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+  <meta charset="utf-8">
+  <title>Plantilla simple, limpia y responsiva de factura HTML</title>
+
+  <style>
+    .invoice-box {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+      font-size: 16px;
+      line-height: 24px;
+      font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+      color: #555;
+    }
+
+    .invoice-box table {
+      width: 100%;
+      line-height: inherit;
+      text-align: left;
+    }
+
+    .invoice-box table td {
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    .invoice-box table tr td:nth-child(2) {
+      text-align: right;
+    }
+
+    .invoice-box table tr.top table td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.top table td.title {
+      font-size: 45px;
+      line-height: 45px;
+      color: #333;
+    }
+
+    .invoice-box table tr.information table td {
+      padding-bottom: 40px;
+    }
+
+    .invoice-box table tr.heading td {
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+    }
+
+    .invoice-box table tr.details td {
+      padding-bottom: 20px;
+    }
+
+    .invoice-box table tr.item td {
+      border-bottom: 1px solid #eee;
+    }
+
+    .invoice-box table tr.item.last td {
+      border-bottom: none;
+    }
+
+    .invoice-box table tr.total td:nth-child(2) {
+      border-top: 2px solid #eee;
+      font-weight: bold;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+
+      .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    /** RTL **/
+    .rtl {
+      direction: rtl;
+      font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    }
+
+    .rtl table {
+      text-align: right;
+    }
+
+    .rtl table tr td:nth-child(2) {
+      text-align: left;
+    }
+
+    .menu {
+      top: 50px;
+    }
+  </style>
+</head>
+
+<br><br><br>
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+    <tr class="top">
+      <td colspan="2">
+        <table>
+          <tr>
+            <td class="title">
+              <h1>Gestion Hospitalaria</h1>
+            </td>
+
+            <td>
+
+              Fecha de Ingreso: {{admitDate}}<br>
+              Fecha de Alta: {{todayDate}}<br>
+              Dias Hospedado: {{day}}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="information">
+      <td colspan="2">
+        <table>
+          <tr>
+            <td>
+              Nombre del Paciente: {{name}}<br>
+              Telefono del Paciente: {{mobile}}<br>
+              Direccion del Paciente: {{address}}<br>
+            </td>
+
+            <td>
+              Nombre del Doctor :<br>
+              {{assignedDoctorName}}<br>
+
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="heading">
+      <td>
+        Enfermedad y Sintomas
+      </td>
+      <td>
+
+      </td>
+
+    </tr>
+
+    <tr class="details">
+      <td>
+        {{symptoms}}
+      </td>
+    </tr>
+    <tr class="heading">
+      <td>
+        Item
+      </td>
+
+      <td>
+        Precio
+      </td>
+    </tr>
+    <form method="post">
+      {% csrf_token %}
+
+      <tr class="item">
+        <td>
+          Costo por Habitacion (Per Day)
+        </td>
+
+        <td>
+          <input type="number" name="roomCharge" placeholder="En Soles" value="">
+        </td>
+      </tr>
+
+      <tr class="item">
+        <td>
+          Honorarios del Doctor
+        </td>
+
+        <td>
+          <input type="number" name="doctorFee" placeholder="En Soles" value="">
+        </td>
+      </tr>
+
+      <tr class="item">
+        <td>
+          Costos de Medicamentos
+        </td>
+
+        <td>
+          <input type="number" name="medicineCost" placeholder="En Soles" value="">
+        </td>
+      </tr>
+
+      <tr class="item last">
+        <td>
+          Otros Cargos
+        </td>
+
+        <td>
+          <input type="number" name="OtherCharge" placeholder="En Soles" value="">
+        </td>
+      </tr>
+
+      <tr class="total">
+        <td></td>
+
+        <td>
+          <input type="submit" name="submit" value="Generar Factura">
+        </td>
+      </tr>
+
+    </form>
+  </table>
+</div>
+
+{% endblock content %}

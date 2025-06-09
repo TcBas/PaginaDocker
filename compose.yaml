@@ -1,0 +1,21 @@
+services:
+  python-app:
+    build:
+      context: .
+    container_name: python-app
+    restart: unless-stopped
+    init: true
+    ports:
+      - "8000:8000"  # Django development server
+    # env_file: ./.env  # Uncomment if .env file exists
+    # The Django app uses a local SQLite database by default (db.sqlite3)
+    # If you switch to a production database, add the service here and update settings.py
+    networks:
+      - appnet
+    volumes:
+      - ./static:/app/static  # For static file development
+      - ./db.sqlite3:/app/db.sqlite3  # Persist SQLite DB (for development only)
+
+networks:
+  appnet:
+    driver: bridge

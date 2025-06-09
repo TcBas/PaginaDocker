@@ -1,0 +1,102 @@
+{% extends 'hospital/homebase.html' %}
+
+{% block content %}
+
+<style>
+  :root {
+    --bg-dark: #121212;
+    --bg-darker: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --accent-color: #bb86fc;
+    --border-color: #333;
+  }
+
+  .jumbotron {
+    background-color: var(--bg-darker);
+    color: var(--text-primary);
+    border-radius: 10px;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 20px rgba(204, 172, 172, 0.3);
+    border: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .display-4 {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  hr {
+    border-color: var(--border-color);
+    margin: 1.5rem 0;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--bg-dark);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.5rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #9a67d5;
+    border-color: #9a67d5;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 576px) {
+    .jumbotron {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+    
+    .btn-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .btn-primary {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+  }
+</style>
+
+<br>
+<br>
+
+<div class="jumbotron" >
+  <h1 class="display-4" style="text-align:center;">Hola, Administrador</h1>
+  <p class="lead">Bienvenido al Sistema de Gestión Hospitalaria</p>
+  <hr class="my-4">
+  <p>Puede acceder a varias funciones después de registrarse o iniciar sesión</p>
+  <div class="btn-container">
+    <a class="btn btn-primary btn-lg" href="/adminsignup" role="button">Registrarse</a>
+    <a class="btn btn-primary btn-lg" href="/adminlogin" role="button">Iniciar Sesión</a>
+  </div>
+</div>
+
+{% endblock content %}

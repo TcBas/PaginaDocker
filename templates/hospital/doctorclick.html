@@ -1,0 +1,110 @@
+{% extends 'hospital/homebase.html' %}
+
+{% block content %}
+
+<style>
+  :root {
+    --bg-dark: #121212;
+    --bg-darker: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --accent-color: #bb86fc;
+    --border-color: #333;
+  }
+
+  .jumbotron {
+    background-color: var(--bg-darker);
+    color: var(--text-primary);
+    border-radius: 10px;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .display-4 {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+  }
+
+  .lead {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  hr.my-4 {
+    border-color: var(--border-color);
+    margin: 1.5rem auto;
+    width: 70%;
+  }
+
+  .btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--bg-dark);
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    margin: 0 1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+  }
+
+  .btn-primary:hover {
+    background-color: #9a67d5;
+    border-color: #9a67d5;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .jumbotron {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
+    
+    .display-4 {
+      font-size: 2rem;
+    }
+    
+    .btn-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .btn-primary {
+      width: 100%;
+      margin: 0.25rem 0;
+    }
+  }
+</style>
+
+<br>
+<br>
+
+<div class="jumbotron">
+  <h1 class="display-4">Hola, Doctor</h1>
+  <p class="lead">Bienvenido al Sistema de Gestión Hospitalaria</p>
+  <hr class="my-4">
+  <p>Puedes acceder a varias funciones después de Registrarte/Iniciar sesión</p>
+  <div class="btn-container">
+    <a class="btn btn-primary btn-lg" href="/doctorsignup" role="button">Registrarse</a>
+    <a class="btn btn-primary btn-lg" href="/doctorlogin" role="button">Iniciar Sesión</a>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión Hospitalaria</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    :root {
+      --bg-dark: #121212;
+      --bg-darker: #1a1a1a;
+      --bg-menu: #1e1e1e;
+      --text-primary: #e0e0e0;
+      --text-secondary: #b0b0b0;
+      --accent-color: #bb86fc;
+      --border-color: #333;
+    }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    .bs-example {
+      margin: 0px;
+    }
+
+    .navbar {
+      background-color: var(--bg-menu) !important;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary) !important;
+      letter-spacing: 0.5px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      color: var(--text-primary);
+      padding: 0.5rem 1rem;
+      margin: 0 0.2rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: var(--accent-color);
+      background-color: rgba(187, 134, 252, 0.1);
+    }
+
+    .navbar-dark .navbar-toggler {
+      border-color: var(--border-color);
+    }
+
+    .navbar-dark .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(224, 224, 224, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-nav {
+        padding-top: 1rem;
+      }
+      
+      .navbar-nav .nav-item {
+        margin: 0.3rem 0;
+      }
+      
+      .navbar-collapse {
+        background-color: var(--bg-darker);
+        padding: 1rem;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bs-example">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <div class="container">
+        <a href="/" class="navbar-brand">GESTIÓN HOSPITALARIA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav mr-auto">
+            <a href="/adminclick" class="nav-item nav-link">ADMINISTRADOR</a>
+            <a href="/doctorclick" class="nav-item nav-link">DOCTOR</a>
+            <a href="/patientclick" class="nav-item nav-link">PACIENTE</a>
+          </div>
+
+          <div class="navbar-nav ml-auto">
+            <a href="/aboutus" class="nav-item nav-link">SOBRE NOSOTROS</a>
+            <a href="/contactus" class="nav-item nav-link">CONTÁCTANOS</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</body>
+</html>

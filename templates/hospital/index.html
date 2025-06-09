@@ -1,0 +1,130 @@
+{% extends 'hospital/homebase.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Efecto de partículas sutiles para el fondo */
+    .jumbotron::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(187, 134, 252, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(187, 134, 252, 0.1) 0%, transparent 20%);
+      z-index: 0;
+    }
+
+    .jumbotron h5,
+    h3 {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .alert {
+      margin: 0px;
+    }
+
+    .glow {
+      font-size: 50px;
+      color: #bb86fc; /* Color morado/accent del tema */
+      text-align: center;
+      -webkit-animation: glow 2s ease-in-out infinite alternate;
+      -moz-animation: glow 2s ease-in-out infinite alternate;
+      animation: glow 2s ease-in-out infinite alternate;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 5px rgba(187, 134, 252, 0.5), 
+                     0 0 10px rgba(187, 134, 252, 0.4);
+      }
+      to {
+        text-shadow: 0 0 10px rgba(187, 134, 252, 0.7), 
+                     0 0 20px rgba(187, 134, 252, 0.5),
+                     0 0 30px rgba(187, 134, 252, 0.3);
+      }
+    }
+
+    .jumbotron .lead {
+      color: #e0e0e0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background-color: #bb86fc;
+      border-color: #bb86fc;
+      color: #121212;
+      font-weight: 600;
+      padding: 12px 30px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary:hover {
+      background-color: #9a67d5;
+      border-color: #9a67d5;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Efecto de grid sutil para el fondo */
+    .jumbotron::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(30, 30, 30, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 30, 30, 0.2) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<br>
+<br>
+
+<div class="jumbotron" style="margin-bottom: 0px; margin-top: 0px; min-height: 80vh; display: flex; flex-direction: column; justify-content: center;">
+  <div style="position: relative; z-index: 2;">
+    <h5 class="display-3 glow"style="font-size: 2rem;">Te encantará la forma en que cuidamos de ti</h5>
+    <br><br><br>
+    <h3 style="color: #e0e0e0;">¿Emergencia?</h3>
+    <br>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/patientclick" role="button">Sacar cita</a>
+    </p>
+  </div>
+</div>
+
+<br><br><br><br>
+
+{% include "hospital/admin_doctor_patient_card.html" %}
+<br><br><br>
+
+{% endblock content %}
