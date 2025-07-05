@@ -1,15 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
-departments=[('Cardiologist','Cardiologist'),
-('Dermatologists','Dermatologists'),
-('Emergency Medicine Specialists','Emergency Medicine Specialists'),
-('Allergists/Immunologists','Allergists/Immunologists'),
-('Anesthesiologists','Anesthesiologists'),
-('Colon and Rectal Surgeons','Colon and Rectal Surgeons')
+departments = [
+    ('MedicinaGeneral', 'Medicina general'),
+    ('Psicologia', 'Psicología'),
+    ('Odontologia', 'Odontología'),
+    ('Dermatologia', 'Dermatología'),
+    ('Nutricion', 'Nutrición'),
+    ('Oftalmologia', 'Oftalmología'),
 ]
+
 class Doctor(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     profile_pic= models.ImageField(upload_to='profile_pic/DoctorProfilePic/',null=True,blank=True)

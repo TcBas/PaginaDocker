@@ -97,11 +97,13 @@
                 {% render_field userForm.password class="form-control" placeholder="Contraseña" %}
               </div>
               <div class="form-group">
-                {% render_field patientForm.mobile class="form-control" pattern="[6789][0-9]{9}" placeholder="Numero de Celular" %}
+                {% render_field patientForm.mobile class="form-control" pattern="9[0-9]{8}" placeholder="Numero de Celular" %}
               </div>
               <div class="form-group">
-                {% render_field patientForm.assignedDoctorId class="form-control" placeholder="Doctor Asignado" %}
+              <label for="id_assignedDoctorId">Doctor</label>
+              {% render_field patientForm.assignedDoctorId class="form-control" %}
               </div>
+
 
             </div>
           </div>
